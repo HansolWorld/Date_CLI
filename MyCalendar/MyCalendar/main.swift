@@ -26,9 +26,13 @@ class MyCalendar {
     }
     
     func convertStringToDate(year: String, month: String, day: String) -> Date? {
-        let timeZone = TimeZone(identifier: TimeZone.current.identifier)
-        let datecomponent = DateComponents(timeZone: timeZone, year: Int(year), month: Int(month), day: Int(day))
-        guard let customDate = Calendar.current.date(from: datecomponent) else { return nil }
+        var dateComponent = DateComponents()
+        dateComponent.year = Int(year)
+        dateComponent.month = Int(month)
+        dateComponent.day = Int(day)
+        
+//        let datecomponent = DateComponents(year: Int(year), month: Int(month), day: Int(day))
+        guard let customDate = Calendar.current.date(from: dateComponent) else { return nil }
         return customDate
     }
 }
