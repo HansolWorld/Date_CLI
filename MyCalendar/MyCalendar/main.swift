@@ -10,9 +10,17 @@ import Foundation
 class MyCalendar {
     
     private var date = Date()
+    private var year: Int = 0
+    private var month: Int = 0
+    private var day: Int = 0
+    private var hour: Int = 0
+    private var minute: Int = 0
+    private var second: Int = 0
 
     func printDate() {
-        print(Calendar.current.date(byAdding: .day, value: 1, to: date))
+        if let year = Calendar.current.dateComponents( [.year], from: date).year,
+           let month = Calendar.current.dateComponents( [.month], from: date).month {
+        }
     }
 }
 
